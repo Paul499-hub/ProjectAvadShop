@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="{% static 'shop/styles.css' %}">
+</head>
+<body>
+    <h1>Products</h1>
+    <ul class="products">
+        {% for product in products %}
+            <a href="{% url 'book_seminar' %}?product_id={{ product.id }}">
+                <li>{{ product.name }} - ${{ product.price }}</li>
+            </a>
+        {% empty %}
+            <li>No products available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

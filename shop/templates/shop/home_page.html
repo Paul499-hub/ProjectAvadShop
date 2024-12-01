@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABRI Barber</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href=" {% static 'shop/styles_three.css'%}?v={{ timestamp }} ">
+    <!-- <link rel="stylesheet" href=" {% static 'shop/booking_form.css'%}?v={{ timestamp }} "> -->
+</head>
+
+<header class="header">
+
+    <div class="search_container">
+        <button id="search_button">
+            <i class="fas fa-search"></i>
+        </button>
+
+
+        <div class="group">      
+          <input type="text" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Search...</label>
+        </div>
+    </div>
+
+    <div class="logo_container">
+        <img src="{% static '/shop/img/SABRI_BLACK4.jpg' %}">
+    </div>
+</header>
+
+<body>
+    <div class="about_section">
+        <div class="inner_card">
+            <div class="text_container">
+                <h1>About</h1>
+                <p>My name is Avad Ahmed</p>
+                <br/>
+                <p>Description</p>
+
+                <div class="navbar_social_media">
+                    <a href="https://www.facebook.com/awad.sabri.9" class="first_icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://www.twitter.com" class="icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com" class="icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com" class="icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <button class="button-57" role="button"><span class="text">About Me</span><span>Learn More</span></button>
+            </div>
+
+            <div class="image_container">
+                <img src="{% static '/shop/img/profile.jpg' %}" alt="Profile Image"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="products_section">
+        <div class="header_container">
+            <h1> Upcoming Events </h1>
+            <p> Paragraph and description on events </p>
+        </div>
+
+
+        {% for product in products %}
+
+        {% if product.id|divisibleby:2 %}
+
+
+        <div class="product_container">
+            <div class="text_container">
+                <div class="location_container">
+                    <p> {{ product.event_location }}</p>
+                    <a href="https://www.google.com" class="first_icon">
+                        <i class="fas fa-map-marker-alt"></i> 
+                    </a>
+                </div>                
+                <h1> {{ product.name }}</h1>
+                <button class="button-57" role="button" data-url="{% url 'book_seminar' %}?product_id={{product.id}} " onclick="redirect_to_booking_form(this)"><span class="text">Book</span><span>Event</span></button>
+            </div>
+            <div class="image_container">
+                <img src="{% static '/shop/img/'|add:product.picture %}">
+            </div>
+        </div>
+        {% else %}
+
+        <div class="product_container">
+            <div class="image_container">
+                <img src="{% static '/shop/img/'|add:product.picture %}">
+            </div>
+
+            <div class="text_container">
+                <div class="location_container">
+                    <p> {{ product.event_location }}</p>
+                    <a href="https://www.google.com" class="first_icon">
+                        <i class="fas fa-map-marker-alt"></i> 
+                    </a>
+                </div>                
+                <h1> {{ product.name }}</h1>
+                <button class="button-57" role="button" data-url="{% url 'book_seminar' %}?product_id={{product.id}} " onclick="redirect_to_booking_form(this)"><span class="text">Book</span><span>Event</span></button>
+            </div>
+        </div>
+        {% endif %}
+        {% empty %}
+        <p>No products available</p>
+        {% endfor %}
+    </div>
+
+    <div class="footer_section">
+        <div class="inner">
+            <h1>Avad's Barbershop</h1>
+
+            <div class="right_side">
+
+                <div class="contact_info">
+                    <p>+37062929270</p>
+                </div>
+                <div class="address">
+                    <p>Kaunas, gedimino g. 16</p>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+<script>
+    function redirect_to_booking_form(button) {
+        const url = button.getAttribute('data-url')
+        window.location.href = url;
+    }
+</script>
