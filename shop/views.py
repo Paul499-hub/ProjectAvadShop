@@ -38,7 +38,7 @@ def google_login_callback(request):
                 'code': auth_code,
                 'client_id': settings.GOOGLE_CLIENT_ID,
                 'client_secret': settings.GOOGLE_CLIENT_SECRET,
-                'redirect_uri': 'https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/',
+                'redirect_uri': 'https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/google_login_callback/',
                 'grant_type': 'authorization_code'
             }
             response = requests.post(token_url, data=payload)
