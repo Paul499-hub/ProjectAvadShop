@@ -14,6 +14,11 @@ from pathlib import Path
 import os
 
 
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev'
+]
+
 from decouple import config
 
 GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')

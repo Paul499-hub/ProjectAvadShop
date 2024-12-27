@@ -56,8 +56,6 @@ def home(request):
             return JsonResponse({"error": str(e)}, status=400)
 
 
-
-
     # GET ALL IMG NAMES FROM media carousel folder -- FOR CAROUSEL IMGAGES DISPLAY
     carousel_folder_path = os.path.join(settings.MEDIA_ROOT, 'carousel_images')
     files = os.listdir(carousel_folder_path)
