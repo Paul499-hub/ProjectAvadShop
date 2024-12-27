@@ -51,25 +51,34 @@ form {
     flex-direction: column;
 }
 
+
+
+
+
+
+
+
 /* form starting stylings ------------------------------- */
 .input_theme_01 .group{ 
     margin-top:5%;
     margin-bottom: 5%;
-    position:relative; 
+    position: relative; 
 }
 
 .input_theme_01 input {
     font-family: 'Roboto';
-    background-color: transparent;
     font-size:18px;
-    padding:10px 10px 10px 5px;
+    color: white;
+
     display:block;
+    background-color: transparent;
+    padding:10px 10px 10px 5px;
     width:300px;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 1px solid white;
-    color: white;
+    
 }
 
 .input_theme_01 input:focus{ 
@@ -82,12 +91,11 @@ form {
   -webkit-text-fill-color: #ffffff !important; 
   background-color: transparent !important; /* Make the background transparent */
   -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; /* Prevent white background */
-  color: #ffffff !important; /* Set text color explicitly (replace #fff with your desired color) */
+  color: var(--text-color) !important; /* Set text color explicitly (replace #fff with your desired color) */
   font-family: var(--main-font); /* Ensure consistent font */
   font-size: inherit; /* Match your input field's font size */
   transition: background-color 5000s ease-in-out 0s; /* Prevent flickering */
 }
-
 .input_theme_01 input:-webkit-autofill:hover,
 .input_theme_01 input:-webkit-autofill:focus {
   background-color: transparent !important; /* Ensures no changes on hover/focus */
@@ -108,6 +116,7 @@ input::-webkit-input-placeholder {
     color: rgb(255, 255, 255);
     font-size:18px;
     font-weight:normal;
+
     position:absolute;
     pointer-events:none;
     left:5px;
@@ -126,7 +135,9 @@ input::-webkit-input-placeholder {
   
   /* BOTTOM BARS ================================= */
 .input_theme_01 .bar {
-     position:relative; display:block; width:300px;
+     position:relative; 
+     display:block; 
+     width:300px;
 }
 
 .input_theme_01 .bar:before, .bar:after {
@@ -136,6 +147,7 @@ input::-webkit-input-placeholder {
     bottom:1px; 
     position:absolute;
     background: var(--button-color); 
+    
     transition:0.2s ease all; 
     -moz-transition:0.2s ease all; 
     -webkit-transition:0.2s ease all;

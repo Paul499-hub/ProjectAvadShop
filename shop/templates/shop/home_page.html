@@ -8,17 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href=" {% static 'shop/styles_three.css'%}?v={{ timestamp }} ">
+    <link rel="stylesheet" href=" {% static 'shop/css/home_page.css'%}?v={{ timestamp }} ">
     <!-- <link rel="stylesheet" href=" {% static 'shop/booking_form.css'%}?v={{ timestamp }} "> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <header class="header">
 
-    <div class="search_container">
+    <!-- <div class="search_container">
         <button id="search_button">
             <i class="fas fa-search"></i>
         </button>
-
 
         <div class="group">      
           <input type="text" required>
@@ -26,23 +26,108 @@
           <span class="bar"></span>
           <label>Search...</label>
         </div>
+    </div> -->
+
+
+
+
+    <div class="header_navbar">
+        <a href="#" class="scroll_btn" data-tracking-target="opener_section"  data-scroll-target="opener_section">Home</a>
+        <a href="#" class="scroll_btn scroll_to_div_center" data-tracking-target="about_section" data-scroll-target="about_section">About</a>
+        <a href="#" class="scroll_btn" data-tracking-target="gallery_section" data-scroll-target="gallery_section">Gallery</a>
+        <a href="#" class="scroll_btn" data-tracking-target="products_section" data-scroll-target="products_section">Seminars</a>
+        <a href="#" class="scroll_btn" data-tracking-target="videos_section" data-scroll-target="videos_section">Videos</a>
+        <a href="#" class="scroll_btn" data-tracking-target="contact_section" data-scroll-target="contact_section">Contact</a>
     </div>
 
     <div class="logo_container">
-        <img src="{% static '/shop/img/SABRI_BLACK4.jpg' %}">
+        <div class="logo_wrapper">
+            <!-- <img src="{% static '/shop/img/LOGO_PEN_BW_GS_INVERTED_T.png' %}"> -->
+            <div class="img"></div>
+        </div>
     </div>
+
+    
+    <div class="menu" id="menu">
+        <div class="menu_wrapper">
+            <div class="span_wrapper">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="inside_menu" id="inside_menu">
+        <span class="close_btn" id="close_btn">&times;</span>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Seminars</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+
 </header>
 
 <body>
-    <div class="about_section">
+
+    <!-- <style>
+        .opener_section .image_container .img {
+            width:100%;
+            height:100%;
+            z-index:0;
+            background:
+                linear-gradient(to bottom, transparent 60%, #100c0c81 75%  , #100c0cc5 83%  , #100c0cf5 94%  , var(--secondary-color) 100%  ),
+                url("{% static '/shop/img/HRezAIMan.PNG' %}") no-repeat top center / cover;
+            background-blend-mode: normal;
+           
+        }
+    </style> -->
+
+
+    <div class="opener_section section_js" data-name="opener_section" id="opener_section">
+        <div class="image_container">
+            <!-- <img src="{% static '/shop/img/Opener3_AI_UP2x.PNG' %}" alt="Profile Image"/> -->
+            <div class="img" id="custom_scroll_opener"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="text_container">
+            <h2>- WELCOME TO -</h2>
+            <h1>AWAD'S STUDIO</h1>
+        </div>
+    </div>
+    <script> // JS SCROLL STYLE FOR OPENER IMAGE / MAKE IMAGE SCROLL SLOWER
+        const t_img = document.getElementById('custom_scroll_opener')
+        window.addEventListener('scroll', ()=>{
+            const scrollPosition = window.scrollY
+            t_img.style.transform = `translateY(${scrollPosition * 0.4}px)`
+        })
+    </script>
+
+
+    <div class="about_section section_js" data-name="about_section" id="about_section">
         <div class="inner_card">
             <div class="text_container">
-                <h1>About</h1>
-                <p>My name is Avad Ahmed</p>
-                <br/>
-                <p>Description</p>
+                <div class="scroll_appearable">
+                    <h1>ABOUT</h1>
+                </div>
+                
+                <div class="scroll_appearable">
+                    <h2>MY NAME IS AWAD AHMED</h2>    
+                </div>
+                
+                
+                <div class="scroll_appearable">
+                    <p>I conduct expert barber seminars, sharing my extensive experience to elevate your professional skills</p>    
+                </div>
+                
 
-                <div class="navbar_social_media">
+                
+                <div class="navbar_social_media scroll_appearable">
                     <a href="https://www.facebook.com/awad.sabri.9" class="first_icon">
                         <i class="fab fa-facebook-f"></i>
                     </a>
@@ -58,20 +143,200 @@
                     <a href="https://www.instagram.com" class="icon">
                         <i class="fab fa-instagram"></i>
                     </a>
+                </div>    
+                
+                <div class="scroll_appearable">
+                    <button class="button-57" role="button"><span>About Me</span><span>Learn More</span></button>  
                 </div>
-                <button class="button-57" role="button"><span class="text">About Me</span><span>Learn More</span></button>
+                  
             </div>
 
-            <div class="image_container">
-                <img src="{% static '/shop/img/profile.jpg' %}" alt="Profile Image"/>
+            <div class="image_container scroll_appearable">
+                <img src="{% static '/shop/img/profile_T.png' %}" alt="Profile Image"/>
             </div>
         </div>
     </div>
 
-    <div class="products_section">
+
+    <div class="gallery_section section_js" data-name="gallery_section" id="gallery_section">
+        <div class="text_container">
+            <div class="wrapper">
+                <h1 class="scroll_appearable">Gallery</h1>
+                <div class="line_text_wrapper scroll_appearable">
+                    <span></span>
+                    <p>Get to know us</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="images_wrapper scroll_appearable">
+            <div class="carousel_button_wrapper">
+                <button onclick="left_turn(this)" class="carousel_button left_btn">&#8249;</h3>
+                <button onclick="right_turn(this)" class="carousel_button right_btn">&#8250;</h3>
+            </div>
+            {% for carousel_img in carousel %}
+                <img class="carousel_img" src="{{ MEDIA_URL }}carousel_images/{{ carousel_img }}">
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+    <script>// CAROUSEL NEW SCRIPT
+
+        wrapper = document.querySelector('.images_wrapper')
+        img_list = wrapper.querySelectorAll('.carousel_img')
+        let index=0
+
+        let intervalId;
+        let defaultInterval = 5000
+
+        function startCarousel() {
+            intervalId = setInterval( ()=> carousel_turn('r'), defaultInterval);
+        }
+
+        function rotate_index(img_list, idx){
+            out = (img_list.length + idx) % img_list.length
+            return out
+        }
+
+        function right_turn(btn){ // <--- BUTTON
+            index = rotate_index(img_list, index)
+            carousel_turn('r')
+            clearInterval(intervalId)
+            startCarousel()
+        }
+
+        function left_turn(btn){ // <--- BUTTON
+            index = rotate_index(img_list, index)
+            carousel_turn('l')
+            clearInterval(intervalId)
+            startCarousel()
+            
+        }
+
+        // INITIAL IMG SETUP
+        img_list.forEach((img)=>{
+            img.style.opacity = '0'
+            img.style.width = '0px'
+            img.style.height = '0px'
+            img.style.position = 'absolute'
+        })
+
+        function carousel_turn(side){
+
+            if (side=='r'){
+                index +=1
+                // WILL APPEAR
+                setTimeout(()=>{
+                    img_list[rotate_index(img_list,index+1)].style.left = '96%'
+                    img_list[rotate_index(img_list,index+1)].style.width = '0px'
+                    img_list[rotate_index(img_list,index+1)].style.height = '0px'
+                    img_list[rotate_index(img_list,index+1)].style.transition = 'none'
+                }, 10)
+
+
+                // DISSAPEARING
+                setTimeout(()=>{
+                    img_list[rotate_index(img_list,index-2)].style.transition =  'transform 0.5s ease, width 0.5s ease, height 0.5s ease, opacity 0.5s ease, left 0.5s ease'
+                    img_list[rotate_index(img_list,index-2)].style.opacity = '0'
+                    img_list[rotate_index(img_list,index-2)].style.position = 'absolute'
+                    img_list[rotate_index(img_list,index-2)].style.width = '0px'
+                    img_list[rotate_index(img_list,index-2)].style.height = '0px'
+                    img_list[rotate_index(img_list,index-2)].style.left = '-1%'
+                    img_list[rotate_index(img_list,index-2)].style.zIndex = '0'
+    
+                },50)
+
+            }
+            else if (side=='l'){
+                index -=1
+
+                // ABOUT TO APPEAR
+                setTimeout(()=>{
+                    img_list[rotate_index(img_list,index-1)].style.left = '-1%'
+                    img_list[rotate_index(img_list,index-1)].style.width = '0px'
+                    img_list[rotate_index(img_list,index-1)].style.height = '0px'
+                    img_list[rotate_index(img_list,index-1)].style.transition = 'none'
+                }, 10)
+
+                // DISSAPEARING
+                setTimeout(()=>{
+                    img_list[rotate_index(img_list,index+2)].style.transition =  'transform 0.5s ease, width 0.5s ease, height 0.5s ease, opacity 0.5s ease, left 0.5s ease'
+                    img_list[rotate_index(img_list,index+2)].style.opacity = '0'
+                    img_list[rotate_index(img_list,index+2)].style.position = 'absolute'
+                    img_list[rotate_index(img_list,index+2)].style.width = '0px'
+                    img_list[rotate_index(img_list,index+2)].style.height = '0px'
+                    img_list[rotate_index(img_list,index+2)].style.left = '96%'
+                    img_list[rotate_index(img_list,index+2)].style.zIndex = '0'
+    
+                },50)
+            }
+            
+            
+            // RIGHT
+            setTimeout(()=>{
+                img_list[rotate_index(img_list,index+1)].style.transition = 'transform 0.5s ease, width 0.5s ease, height 0.5s ease, opacity 0.5s ease, left 0.5s ease'
+                img_list[rotate_index(img_list,index+1)].style.opacity = '1'
+                img_list[rotate_index(img_list,index+1)].style.position = 'absolute'
+                img_list[rotate_index(img_list,index+1)].style.width = '450px'
+                img_list[rotate_index(img_list,index+1)].style.height = '425px'
+                img_list[rotate_index(img_list,index+1)].style.transform = 'rotateY(-20deg) translateZ(50px)'
+                img_list[rotate_index(img_list,index+1)].style.zIndex = '1'
+                img_list[rotate_index(img_list,index+1)].style.left = '69.3%'
+            },50)
+
+
+            // CENTER from RIGHT
+            setTimeout(()=>{
+                img_list[rotate_index(img_list,index)].style.transition = 'transform 0.5s ease, width 0.5s ease, height 0.5s ease, opacity 0.5s ease, left 0.5s ease'
+                img_list[rotate_index(img_list,index)].style.opacity = '1'
+                img_list[rotate_index(img_list,index)].style.position = 'absolute'
+                img_list[rotate_index(img_list,index)].style.width = '600px'
+                img_list[rotate_index(img_list,index)].style.height = '450px'
+                img_list[rotate_index(img_list,index)].style.transform = 'rotateY(0deg) translateZ(50px)'
+                img_list[rotate_index(img_list,index)].style.zIndex = '3'
+                img_list[rotate_index(img_list,index)].style.left = '34.2%'
+            },50)
+
+
+            
+            // LEFT from CENTER
+            setTimeout(()=>{
+                img_list[rotate_index(img_list,index-1)].style.transition = 'transform 0.5s ease, width 0.5s ease, height 0.5s ease, opacity 0.5s ease, left 0.5s ease'
+                img_list[rotate_index(img_list,index-1)].style.opacity = '1'
+                img_list[rotate_index(img_list,index-1)].style.position = 'absolute'
+                img_list[rotate_index(img_list,index-1)].style.width = '450px'
+                img_list[rotate_index(img_list,index-1)].style.height = '425px'
+                img_list[rotate_index(img_list,index-1)].style.transform = 'rotateY(20deg) translateZ(50px)'
+                img_list[rotate_index(img_list,index-1)].style.zIndex = '1'
+                img_list[rotate_index(img_list,index-1)].style.left = '7%'
+            },50)
+
+
+        
+
+
+
+        }
+
+
+        carousel_turn('r')//initial turn
+        //startCarousel()
+
+    </script>
+
+   
+    <div class="products_section section_js" data-name="products_section" id="products_section">
         <div class="header_container">
-            <h1> Upcoming Events </h1>
-            <p> Paragraph and description on events </p>
+            <div class="scroll_appearable">
+                <h1>UPCOMING EVENTS</h1>
+            </div>
+
+            <div class="scroll_appearable">
+                <p> Paragraph and description on events </p>
+            </div>
+            
         </div>
 
 
@@ -83,34 +348,55 @@
         <div class="product_container">
             <div class="text_container">
                 <div class="location_container">
-                    <p> {{ product.event_location }}</p>
-                    <a href="https://www.google.com" class="first_icon">
+                    <div class="scroll_appearable">
+                        <p> {{ product.event_location }}</p>
+                    </div>
+                       
+                    <a href="https://www.google.com" class="first_icon scroll_appearable">
                         <i class="fas fa-map-marker-alt"></i> 
                     </a>
-                </div>                
-                <h1> {{ product.name }}</h1>
-                <button class="button-57" role="button" data-url="{% url 'book_seminar' %}?product_id={{product.id}} " onclick="redirect_to_booking_form(this)"><span class="text">Book</span><span>Event</span></button>
+                </div> 
+
+                <div class="scroll_appearable">
+                    <h1> {{ product.name }}</h1>
+                </div>               
+                
+                <div class="scroll_appearable">
+                    <button class="button-57" role="button" data-url="{% url 'book_seminar' %}?product_id={{product.id}} " onclick="redirect_to_booking_form(this)"><span class="text">Book</span><span>Event</span></button>
+                </div>
             </div>
-            <div class="image_container">
+
+            <div class="image_container scroll_appearable">
                 <img src="{% static '/shop/img/'|add:product.picture %}">
             </div>
         </div>
         {% else %}
 
         <div class="product_container">
-            <div class="image_container">
+
+            <div class="image_container scroll_appearable">
                 <img src="{% static '/shop/img/'|add:product.picture %}">
             </div>
-
+     
             <div class="text_container">
                 <div class="location_container">
-                    <p> {{ product.event_location }}</p>
-                    <a href="https://www.google.com" class="first_icon">
-                        <i class="fas fa-map-marker-alt"></i> 
-                    </a>
-                </div>                
-                <h1> {{ product.name }}</h1>
-                <button class="button-57" role="button" data-url="{% url 'book_seminar' %}?product_id={{product.id}} " onclick="redirect_to_booking_form(this)"><span class="text">Book</span><span>Event</span></button>
+                    <div class="scroll_appearable">
+                        <p> {{ product.event_location }}</p>
+                    </div>
+                    <div class="scroll_appearable">
+                        <a href="https://www.google.com" class="first_icon">
+                            <i class="fas fa-map-marker-alt"></i> 
+                        </a>
+                    </div>
+                    
+                </div>  
+                <div class="scroll_appearable">
+                    <h1> {{ product.name }}</h1>
+                </div>              
+                
+                <div class="scroll_appearable">
+                    <button class="button-57" role="button" data-url="{% url 'book_seminar' %}?product_id={{product.id}} " onclick="redirect_to_booking_form(this)"><span class="text">Book</span><span>Event</span></button>
+                </div>
             </div>
         </div>
         {% endif %}
@@ -119,7 +405,88 @@
         {% endfor %}
     </div>
 
+
+    
+    <div class="videos_section section_js" data-name="videos_section" id="videos_section">
+        <div class="top_gradient"></div>
+        <div class="videos_wrapper">
+
+             <div class="top_bar scroll_appearable">
+                <div class="icon_wrapper">
+                    <i class="fas fa-clapperboard"></i>
+                </div>
+                <div class="text_wrapper">
+                    <h3>VIDEOS</h3>
+                </div>
+             </div>
+             <p class="scroll_appearable">Here you can purchase exclusive tutorials to master barbering skills from Barber Awad. 
+                Simply browse our collection, select your desired videos, and start your journey to becoming a skilled barber with step-by-step guidance from an expert.</p>
+             
+                <div class="videos">
+                {% for video in videos %}
+                <div class="video_wrapper">
+                    <video width="600" controls>
+                        <source src="{{ MEDIA_URL }}videos/{{ video }}" type="video/mp4">
+                    </video>
+                </div>
+                {% endfor %}
+             </div>
+        </div>
+    </div>
+
+    
+    <div class="contact_section section_js" data-name="contact_section" id="contact_section">
+        <div class="inner_wrapper">
+            <div class="text_wrapper">
+                <div class="text_container"> 
+                    <h1 class="scroll_appearable">CONTACT US</h1>
+                    <p class="scroll_appearable">To get in touch, simply provide your name, email, and message. This information helps us address your inquiries promptly and ensures we can assist you effectively.</p>
+                </div>
+            </div>
+           
+            <div class="form_wrapper">
+                <form method="post" action="{% url 'book_seminar' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="product_id" value="{{ product_id }}">
+        
+                    <div class="input_theme_01 scroll_appearable">
+                        <div class="group">      
+                            <input type="text" name="name" spellcheck="false" required>
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Name</label>
+                        </div>
+                    </div>
+        
+                    <div class="input_theme_01 scroll_appearable">
+                        <div class="group">      
+                            <input type="text" name="message" spellcheck="false" required>
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Message</label>
+                        </div>
+                    </div>
+                    <!-- <label for="name">Name:</label>
+                    <input type="text" name="name"  required><br>
+            
+                    <label for="email">Email:</label>
+                    <input type="email" name="email"  required><br>
+            
+                    <label for="phone">Phone:</label>
+                    <input type="text" name="phone"  required><br> -->
+
+                    <div class="scroll_appearable">
+                        <button class="button-57-CW" type="submit"><span>Send Message</span><span>Send</span></button>
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+
+    </div>
+
     <div class="footer_section">
+        <span></span>
         <div class="inner">
             <h1>Avad's Barbershop</h1>
 
@@ -138,13 +505,252 @@
         </div>
     </div>
 
-
 </body>
 </html>
 
-<script>
+
+<script> // OPEN INSIDE MENU CSS TOGGLER + booking form click event
+
     function redirect_to_booking_form(button) {
         const url = button.getAttribute('data-url')
         window.location.href = url;
     }
+
+    menu_btn = document.getElementById('menu')
+    inside_menu = document.getElementById('inside_menu')
+    overlay = document.getElementById('overlay')
+    close_btn = document.getElementById('close_btn')
+
+    menu_btn.addEventListener('click', ()=>{
+        inside_menu.classList.toggle('active')
+        overlay.classList.toggle('active')
+
+    })
+
+    overlay.addEventListener('click', () => {
+        inside_menu.classList.toggle('active')
+        overlay.classList.toggle('active')
+    })
+
+    close_btn.addEventListener('click', ()=>{
+        inside_menu.classList.toggle('active')
+        overlay.classList.toggle('active')
+    })
+
 </script>
+
+<script> // ----- SCROLL TO SECTION FROM BUTTON CLICK 
+
+    // EXAMPLE DIV's THAT USE THIS FUNCTIONALITY
+    //<div class="header_navbar">
+    //    <a href="#" class="scroll_btn" data-tracking-target="opener_section"  data-scroll-target="opener_section">Home</a>
+    //    <a href="#" class="scroll_btn" data-tracking-target="about_section" data-scroll-target="about_section">About</a>
+    //    <a href="#" class="scroll_btn" data-tracking-target="products_section" data-scroll-target="products_section">Seminars</a>
+    //    <a href="#" class="scroll_btn" data-tracking-target="contact_section" data-scroll-target="contact_section">Contact</a>
+    //</div>
+
+
+    document.querySelectorAll('.scroll_btn').forEach( (btn)=>{
+        btn.addEventListener('click', (event)=>{
+            event.preventDefault()
+            scroll_to_section_name = event.target.getAttribute('data-scroll-target')
+            if (btn.classList.contains('scroll_to_div_center')){
+                document.getElementById(scroll_to_section_name).scrollIntoView({behavior:'smooth', block:'center'})//start center
+            }
+            else {
+                document.getElementById(scroll_to_section_name).scrollIntoView({behavior:'smooth', block:'start'})//start center
+            }
+            
+        })
+    })
+
+</script>
+
+<script> // --------SCROLL EVENT LISTENER: NEW APPEARABLE DIV's + SECTION TRACKING + HEADER CHANGE. (DON't HAVE TO MANY .scroll_appearable or /section_js/tracking divs)
+    
+
+    // --- TO MAKE A SECTION DIV TRACKABLE AND SCROLL-TO-ABLE: //  <div class="contact_section section_js" data-name="contact_section" id="contact_section">
+    // 1. ADD ATTRIBUTES(3)  .section_js | data-name | id (to SECTION)
+    // 2. ADD ATTRIBUTE(3)   .scroll_btn | data-tracking-target(section's data-name) | data-scroll-target(section's id) TO BUTTON THAT TRACKS THIS SECTION (to BUTTON)
+    
+
+    const timerMS = 25
+    let scroll_header_change_treshold = 10
+    let trigger_line_offset = 350 // HOW MANY PX FROM CENTER (DOWN)
+    let tracker_line_offset = -200
+    let waitTimer;
+    let saved_button = null
+    window.addEventListener('scroll', () => {
+        clearTimeout(waitTimer)
+        waitTimer = setTimeout(()=>{
+            
+            // HEADER CHANGE ON SCROLL
+                //1. TRANSFORM HEADER IN SMALLER
+                //2. TRANSFORM MIDDLE ICON INTO SMALLER ICON 
+                //3. CHANGE OPACITY 
+
+            header = document.querySelector('.header')
+            logo_container = header.querySelector('.logo_container')
+            logo = header.querySelector('.img')
+
+            if (window.scrollY >= scroll_header_change_treshold && !header.classList.contains('scrolled') ){
+                header.classList.add('scrolled')
+                logo.classList.add('scrolled')
+                logo_container.classList.add('scrolled')
+
+            }else if ( window.scrollY < scroll_header_change_treshold && header.classList.contains('scrolled') )  {
+                header.classList.remove('scrolled')
+                logo.classList.remove('scrolled')
+                logo_container.classList.remove('scrolled')
+            }
+
+
+
+            // Convert sets to arrays if needed
+            const scroll_appearables = document.querySelectorAll('.scroll_appearable')
+            const trackable_sections = document.querySelectorAll('.section_js')
+            const trigger_line = (window.innerHeight / 2) + trigger_line_offset
+        
+            //APPEAR - DIVS APPEAR DYNAMICALLY BY SCROLLING
+            scroll_appearables.forEach((scroll_appearable)=>{
+                const rect = scroll_appearable.getBoundingClientRect();
+                const middle = rect.top + (rect.height / 2)
+                if (middle >= trigger_line && scroll_appearable.classList.contains('visible') ) {
+                    scroll_appearable.classList.remove('visible')       
+                }
+                else if(middle < trigger_line && !scroll_appearable.classList.contains('visible')){
+                    scroll_appearable.classList.add('visible')
+                }
+            })
+            //APPEAR - DIVS APPEAR DYNAMICALLY BY SCROLLING -- END
+
+            // TRACK SCROLL POSITION / IDENTIFY SECTION / CHANGE HEADER BUTTON COLOR BASED ON SCROLL/CURRENT MID-SCREEN SECTION NAME
+            const tracker_line = (window.innerHeight / 2) + tracker_line_offset
+            trackable_sections.forEach( (section)=>{
+                const rect = section.getBoundingClientRect()
+                const section_name = section.getAttribute('data-name')
+
+                // MATCH BUTTON = (SECTION's) data-name == (BUTTON's) data-tracking-target
+                //let header_button = document.getElementById(section_name) // 'contact_section'
+                let header_button = document.querySelector('[data-tracking-target="'+section_name+'"]')
+
+                if ( rect.top >= tracker_line && header_button.classList.contains('section_js_active')) { // LOGIC DOWNWARDS 
+                    header_button.classList.remove('section_js_active')
+                }
+                else if ( rect.top < tracker_line && !header_button.classList.contains('section_js_active')) {
+                    header_button.classList.add('section_js_active')
+                    if (saved_button){
+                        saved_button.classList.remove('section_js_active') 
+                    }
+                    saved_button = header_button
+                }
+            })
+            // [END] TRACK SCROLL POSITION / IDENTIFY SECTION / CHANGE HEADER BUTTON COLOR BASED ON SCROLL/CURRENT MID-SCREEN SECTION NAME
+
+        }, timerMS)// [END] TIMER 
+
+
+    })// SCROLL LISTENER -- END
+
+
+
+</script>
+<!-- <script> // -------- OLD MULTIPLE POINT SOLUTION SCROLL LISTENER.  APPEARABLE DIV's + SECTION TRACKING
+    
+
+    const step_multiplier = 0.5 // STEP IN PIXELS (%)
+    const timerMS = 50
+
+    let waitTimer;
+    window.addEventListener('scroll', () => {
+        clearTimeout(waitTimer)
+        waitTimer = setTimeout(()=>{
+
+            const centerY = window.innerHeight / 2
+            const maxX = window.innerWidth
+            const step = (maxX/100) * step_multiplier // STEP IN PIXELS (%)
+            let scroll_appearables = new Set()
+            let trackable_sections = new Set()
+        
+            // TRACE MULTIPLE DOTS ACROSS CENTER LINE
+            for (let x = 0; x <= maxX; x += step){
+                const center_elements = document.elementsFromPoint(x, centerY)
+        
+                // Add each '.scroll_appearable' element to the Set
+                center_elements.forEach((el) => {
+                    if (el.matches('.scroll_appearable')) {
+                        scroll_appearables.add(el);
+                    }
+                    if (el.matches('.section_js')){
+                        trackable_sections.add(el)   
+                    }
+                });
+        
+            } // [END] TRACE MULTIPLE DOTS ACROSS CENTER LINE
+        
+            // Convert sets to arrays if needed
+            const scroll_appearables_a = Array.from(scroll_appearables);
+            const trackable_sections_a = Array.from(trackable_sections);
+            const trigger_line = (window.innerHeight / 2)+250 
+        
+            //APPEAR - DIVS APPEAR DYNAMICALLY BY SCROLLING
+            scroll_appearables_a.forEach((scroll_appearable)=>{
+                const rect = scroll_appearable.getBoundingClientRect();
+                const middle = rect.top + (rect.height / 2)
+                if (middle >= trigger_line&& scroll_appearable.classList.contains('visible') ) {
+                    scroll_appearable.classList.remove('visible')       
+                }
+                else if(middle < trigger_line && !scroll_appearable.classList.contains('visible')){
+                    scroll_appearable.classList.add('visible')
+                }
+            })
+            //APPEAR - DIVS APPEAR DYNAMICALLY BY SCROLLING -- END
+
+            // TRACK SCROLL POSITION / IDENTIFY SECTION / CHANGE HEADER BUTTON COLOR BASED ON SCROLL/CURRENT MID-SCREEN SECTION NAME
+            trackable_sections_a.forEach( (section)=>{
+                const rect = section.getBoundingClientRect()
+                const middle = rect.top + (rect.height / 2)
+                const section_name = section.getAttribute('data-name')
+
+                // MATCH BUTTON
+                let header_button = document.getElementById(section_name) // 'contact_section'
+
+                if (middle >= trigger_line && section.classList.contains('section_js_active')) { // LOGIC DOWNWARDS 
+                    header_button.classList.remove('section_js_active')
+                }
+                else if (middle < trigger_line && !section.classList.contains('section_js_active')) {
+                    header_button.classList.add('section_js_active')
+                }
+            })
+            // [END] TRACK SCROLL POSITION / IDENTIFY SECTION / CHANGE HEADER BUTTON COLOR BASED ON SCROLL/CURRENT MID-SCREEN SECTION NAME
+
+        }, timerMS)// [END] TIMER 
+
+
+    })// SCROLL LISTENER -- END
+
+
+
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

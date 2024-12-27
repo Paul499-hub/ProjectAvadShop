@@ -1,17 +1,51 @@
-:root {
 
-    --main-font: "Fahkwang", sans-serif;
-    --font-weight: 400;
+@font-face {
+    font-family: 'League Spartan';
+    src: url('/static/shop/fonts/LeagueSpartan/WOFF2/LeagueSpartan-VF.woff2') format('woff2-variations'),
+         url('/static/shop/fonts/LeagueSpartan/WOFF/LeagueSpartan-VF.woff') format('woff');
+    font-weight: 200 900;
+}
+
+@font-face {
+    font-family: 'Fanwood';
+    src: url('/static/shop/fonts/Fanwood/WOFF/fanwood_text-webfont.woff') format('woff');
+    font-weight: 200 900;
+}
+
+@font-face {
+    font-family: 'Fanwood-Regular';
+    src: url('/static/shop/fonts/Fanwood/WOFF/fanwood-webfont.woff') format('woff');
+    font-weight: 200 900;
+}
+
+ /* REFERENCE DESIGN PAGES https://maestrostudija.lt/ : https://freshcut-barbershop.com/a-propos/ https://www.eddysbarbershop.com/  https://www.steventabach.com/
+    https://www.abelsonqueen.com/   EPIC ---> https://www.fortworthbarbershop.com/
+   -- SCROLL BOTTOM CUTOM APPEARANCE - ITEMS APPEAR GRADUALLY FROM THE BOTTOM*/
+/* WIX DESIGN --> https://editor.wix.com/html/editor/web/renderer/edit/aa34734d-6d67-411a-bb51-428a9c0a94c7?metaSiteId=6744f61d-b66b-4011-9d7a-f643292ccb19 */
+
+:root {
+    /* font-family: 'League Spartan', sans-serif; */
+    /* font-weight: 400;  */
+
+    /* --main-font: "Fahkwang", sans-serif;
+    --font-weight: 400; */
+    /* --main-font: 'League Spartan', sans-serif; */
+    --main-font: 'Fanwood', sans-serif;
     --heading-font: '';
     --secondary-font:"Helvetica", sans-serif;
-    --main-color: rgb(0, 0, 0);
-    --secondary-color: #353535;
-    --button-color: #ec7d0c;
+    --main-color: rgb(255, 255, 255);
+    --secondary-color: #363636;
+    --middle-secondary-color: #cdcdcd;
+    --text-color: #363636;
+     /* BUTTONS */
+    --button-color: #f5ae71;
     /* --button-color: #c71414; */
     --button-color_two: #ec7c0c00;
-    --button-font: 'Roboto', sans-serif;
+    /* --button-font: 'Roboto', sans-serif; */
+    --button-font: 'Fanwood-Regular', sans-serif;
     --button-font-weight: 300; 
-    --text-color: white;
+    --button-text-color: white;
+    
     --max-width: 1275px;
 }
 
@@ -21,46 +55,62 @@
     padding: 0;
 }
 
+
+
+
+
+
+
+
 /* CSS -=-------------------------------- 57 */
 .button-57 {
-    margin-top: 20px;
+    
     font-family: var(--button-font);
     font-weight: var(--button-font-weight);
+    font-size: 30px;
+
+    margin-top: 20px;
     position: relative;
     overflow: hidden;
-    border: 1px solid black;
-    color: #18181a;
+
+    border: 1px solid var(--button-color); /* First outline */
+    box-shadow: 0 0 0 2px var(--main-color),      /* White gap inside? */
+                0 0 0 4px var(--button-color); /* Second outline */
+
+    color: var(--button-text-color);
     /* display: inline-block; */
     display: block;  
-    width: 160px;
-    font-size: 20px;
+    width: 200px;
+    height: 47px;
     line-height: 15px;
     /* padding: 16px 45px 16px; */
-    height: 4vh;
+    
     text-decoration: none;
     cursor: pointer;
     background: var(--button-color);
+    /* background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%); */
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    transition: border 300ms ease, box-shadow 300ms ease;
   }
   
   .button-57 span:first-child {
-    top: 20%;  /* CONTROLLS THE HEIGHT OF THE MAIN TEXT WITHIN BUTTON  */
+    top: 25%;  /* CONTROLLS THE HEIGHT OF THE MAIN TEXT WITHIN BUTTON  */
     position: relative;
     transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
     z-index: 10;
   }
   
   .button-57 span:last-child {
-    color: white;
+    color: var(--secondary-color);
     display: block;
     position: relative;
     bottom: 0;
     transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
     z-index: 100;
     opacity: 0;
-    top: 15%; /* CONTROLLS THE HEIGHT OF THE MAIN TEXT WITHIN BUTTON  */
+    top: 20%; /* CONTROLLS THE HEIGHT OF THE MAIN TEXT WITHIN BUTTON  */
     left: 50%;
     transform: translateY(225%) translateX(-50%);
     /* transform: translateY(0%) translateX(-50%); */
@@ -75,16 +125,25 @@
     left: 0;
     width: calc(100% - 1px);
     height: 100%;
-    background-color: var(--secondary-color);
+    background-color:white;
     transform-origin: bottom center;
     transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
     transform: skewY(9.3deg) scaleY(0);
     z-index: 50;
+
   }
   
   .button-57:hover:after {
+    background-color:white;
     transform-origin: bottom center;
     transform: skewY(9.3deg) scaleY(2);
+  }
+
+  .button-57:hover {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 0 2px var(--main-color),
+                0 0 0 4px var(--secondary-color);
+
   }
   
   .button-57:hover span:last-child {
@@ -92,8 +151,43 @@
     opacity: 1;
     transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
   }
-  
   /* CSS -=-------------------------------- 57 */
+
+
+/* ------------------------- S - BUTTON  */
+
+.button-s{
+    margin: 40px 0 0 0;
+    padding: 10px 0 0 0;
+  
+    outline: none;
+    border: 1px solid var(--button-color); /* First outline */
+    box-shadow: 0 0 0 2px var(--main-color),      /* White gap inside? */
+                0 0 0 4px var(--button-color); /* Second outline */
+
+    background: var(--button-color);
+    color: white;
+    letter-spacing: 3px; /* Adjust this value as needed */
+    font-family: 'Fanwood-Regular', sans-serif;
+    font-size: 27px;
+    
+    width: 200px;
+    height:47px;
+    /* transition: color 300ms ease, background-color 300ms ease; */
+    
+}
+.button-s:hover{
+    outline: none;
+    color: var(--secondary-color);
+    background: var(--main-color);
+    border: 0px solid var(--secondary-color); /* First outline */
+    box-shadow: 0 0 0 2px var(--main-color),      /* White gap inside? */
+                0 0 0 3px var(--secondary-color), /* Second outline */
+                0 0 0 5px var(--main-color),
+                0 0 0 6px var(--secondary-color);
+}
+
+/* ------------------------- S - BUTTON  */
 
 body {
     background-color: var(--main-color);
@@ -102,8 +196,10 @@ body {
 
 .about_section {
     width: 100%;
-    background-color: var(--secondary-color);
-    background-image: url("/static/shop/img/smoke_lowres_two_AI.PNG"); 
+    /* background-color: var(--secondary-color); */
+    /* background-image: url("/static/shop/img/smoke_lowres_two_AI.PNG");  */
+    /* background-image: linear-gradient(#fff 0%, #fff 0%); */
+    background: var(--middle-secondary-color);
     background-size: cover; /* Ensures the image covers the entire div */
     background-position: center; /* Centers the image within the div */
     padding: 1px;
@@ -116,12 +212,12 @@ body {
     margin-right:5%;
     margin-top:3%;
     margin-bottom:3%;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 }
 
 .about_section .inner_card .text_container { 
     flex: 1;
-    padding-left:14%;
+    padding-left:11%;
     padding-right:14%;
     display: flex;
     flex-direction: column;
@@ -133,14 +229,31 @@ body {
 .about_section .text_container h1 {
     font-family: var(--main-font);
     color: var(--text-color);
-    font-size: 56px;
-    font-weight: 400;
+    font-size: 90px;
+    font-weight: 800;
+    letter-spacing: 15px;
+    transform: scale(1.00, 1.0);
+}
+
+.about_section .text_container h2 {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 7px;
+    transform: scale(1.00, 1.0);
+    margin:15px 0 0 0;
 }
 
 .about_section .text_container p {
+    margin: 40px 0 0 0;
     font-family: var(--main-font);
     color: var(--text-color);
-    font-size: 26px;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 1.3;
+    /* letter-spacing: 2px; */
+    transform: scale(1.00, 1.0);
 }
 
 .about_section .image_container{
@@ -155,9 +268,8 @@ body {
     object-fit: cover;
 }
 
-
 .navbar_social_media {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .first_icon{
@@ -165,6 +277,7 @@ body {
     text-decoration:none;
     align-self: center;
     padding-top: 5px;
+    transition: all 0.3s ease;
 }
 
 .icon {
@@ -172,6 +285,7 @@ body {
     margin-left: 20px;
     text-decoration:none;
     align-self: center;
+    transition: all 0.3s ease;
 }
 
 .icon:hover {
@@ -182,22 +296,33 @@ body {
     color: var(--button-color);
 }
 
+
+
+
+
+
+
 .products_section {
     font-family: var(--main-font);
     color: var(--text-color);
 }
 
+
 .products_section h1 {
     padding-top: 5%;
-    font-weight: var(--font-weight);   
-    font-size: 56px;
+    font-weight: 800;   
+    letter-spacing: 15px;
+    font-size: 90px;
+    color: var(--text-color);
     text-align: center;
 }
 
 .products_section p {
     padding-top: 2%;
-    font-size: 18px;
     text-align: center;
+    font-size: 21px;
+    line-height: 1.3;
+    font-weight: 300;
 }
 
 .products_section .product_container {
@@ -231,12 +356,15 @@ body {
 
 }
 
+
 .products_section .text_container h1{
     font-size: 35px;
-    font-weight:700;
+    font-weight:600;
+    letter-spacing: 0.1vw;
     padding-top: 2%;
     padding-left: 2%;
     padding-right: 2%;
+    margin: 0 0 65px 0;
 }
 
 .products_section .text_container p{
@@ -252,6 +380,12 @@ body {
     align-items: center;
     gap: 1vh;
 }
+
+
+
+
+
+
 
 
 #search_button{
@@ -277,8 +411,9 @@ body {
     flex-direction: row;
     position: sticky;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.966);
+    background-color: rgb(255, 255, 255);
     z-index: 1000;
+    align-items:center;
 }
 
 .header .logo_container {
@@ -289,7 +424,7 @@ body {
     color: var(--text-color);
     align-items: center; /* UP AND DOWN */
     justify-content: end; /* LEFT RIGHT */
-    margin-right: 50%;
+    margin-right: 40%;
 }
 
 .header .logo_container img {
@@ -306,6 +441,95 @@ body {
     align-items: center;
 }
 
+.inside_menu {
+    position: fixed;
+    top: 0;
+    left: -50%;
+    height: 100%;
+    width: 40%;
+    background-color: var(--middle-secondary-color);
+    padding: 40px 35px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    transition: left 0.3 ease;
+    z-index: 1001
+}
+
+.inside_menu ul{
+    margin: 0 0 0 5%;
+    list-style: none;
+}
+
+.inside_menu ul li{
+    margin: 10% 0 0 0;
+}
+
+.inside_menu ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-family: 'League Spartan';
+    font-weight: 300;
+    font-size: 55px;
+}
+
+.inside_menu ul li a:hover {
+    color: var(--button-color); 
+    font-weight: 200;
+    /* background-color: rgba(0, 0, 0, 0.116);
+    box-shadow: 0px 0px 0px 20px rgba(0, 0, 0, 0.116); */
+    
+  
+
+}
+
+.inside_menu .close_btn {
+    font-size: 50px;
+    
+}
+
+.inside_menu .close_btn:hover {
+    color: var(--button-color);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.3);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000
+}
+
+.inside_menu.active {
+    left: 0;
+}
+
+.overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu{
+    margin: 0 5% 0 0;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Hamburger lines */
+.menu span {
+    display: block;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
 /* form starting stylings ------------------------------- */
 .search_container .group{ 
     position:relative; 
@@ -318,7 +542,7 @@ body {
     display:block;
     width:300px;
     border:none;
-    color: white;
+    color: var(--secondary-color);
 }
 
 .search_container input:focus{ 
@@ -395,11 +619,28 @@ body {
 }
   
 
+
+
+
+
 .footer_section {
+    display: flex;
+    flex-direction: column;
     background-color: var(--main-color);
     width: 100%;
     padding:5%;
-  
+    justify-content: center;
+}
+
+
+.footer_section span{
+    
+    margin: 0 0 0 5%;
+    padding: 0 0 0 0;
+    display: block;
+    width: 85%;
+    height: 1px;
+    background: var(--secondary-color);
 }
 
 .footer_section .inner {
@@ -470,7 +711,7 @@ body {
         color: var(--text-color);
         align-items: center; /* UP AND DOWN */
         justify-content: end; /* LEFT RIGHT */
-        margin-right: 5%;
+        margin-right: 14%;
     }
 
 

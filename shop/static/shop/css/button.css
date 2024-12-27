@@ -1,0 +1,224 @@
+/* ------------------------- S - BUTTON  */
+
+.button-s{
+    margin: 40px 0 0 0;
+    padding: 10px 0 0 0;
+  
+    outline: none;
+    border: 1px solid var(--button-color); /* First outline */
+    box-shadow: 0 0 0 0px var(--button-text-color),      /* White gap inside? */
+                0 0 0 0px var(--button-color), /* Second outline */
+                0 0 0 0px var(--button-text-color);
+
+    background: var(--button-color);
+    color: var(--button-text-color);
+    letter-spacing: 3px; /* Adjust this value as needed */
+    font-family: 'Fanwood-Regular', sans-serif;
+    font-size: 27px;
+    
+    width: 200px;
+    height:47px;
+    /* transition: color 300ms ease, background-color 300ms ease; */
+    
+}
+
+.button-s:hover{
+    outline: none;
+    color: var(--secondary-color);
+    background: var(--main-color);
+    border: 0px solid var(--secondary-color); /* First outline */
+    box-shadow: 0 0 0 2px var(--main-color),      /* White gap inside? */
+                0 0 0 3px var(--secondary-color), /* Second outline */
+                0 0 0 5px var(--main-color),
+                0 0 0 6px var(--secondary-color);
+}
+
+/* ------------------------- S - BUTTON  */
+
+
+/* CSS -=-------------------------------- 57 */
+.button-57 {
+    
+    font-family: var(--button-font);
+    font-weight: var(--button-font-weight);
+    font-size: 27px;
+    letter-spacing: 1px;
+
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid var(--button-color); 
+    /* box-shadow: 0 0 0 2px var(--main-color),     
+                0 0 0 4px var(--button-color);  */
+
+    color: var(--button-text-color);
+    /* display: inline-block; */
+    display: block;  
+    width: 200px;
+    height: 47px;
+    line-height: 15px;
+    /* padding: 16px 45px 16px; */
+    
+    text-decoration: none;
+    cursor: pointer;
+    background: var(--button-color);
+    /* background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%); */
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: border 300ms ease, box-shadow 300ms ease;
+  }
+  
+  .button-57 span:first-child {
+    top: 25%;  /* CONTROLLS THE HEIGHT OF THE MAIN TEXT WITHIN BUTTON  */
+    position: relative;
+    transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 10;
+  }
+  
+  .button-57 span:last-child {
+    color: var(--text-color);
+    display: block;
+    position: relative;
+    bottom: 0;
+    transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 100;
+    opacity: 0;
+    top: 20%; /* CONTROLLS THE HEIGHT OF THE MAIN TEXT WITHIN BUTTON  */
+    left: 50%;
+    transform: translateY(225%) translateX(-50%);
+    /* transform: translateY(0%) translateX(-50%); */
+    /* height: 14px; */
+    line-height: 13px;
+  }
+  
+  .button-57:after {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: calc(100% - 1px);
+    height: 100%;
+    background-color:var(--button-color);
+    transform-origin: bottom center;
+    transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    transform: skewY(9.3deg) scaleY(0);
+    z-index: 50;
+
+  }
+  
+  .button-57:hover:after {
+    background-color: var(--main-color);
+    transform-origin: bottom center;
+    transform: skewY(9.3deg) scaleY(2);
+  }
+
+  .button-57:hover {
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 0 2px var(--main-color),
+                0 0 0 4px var(--secondary-color);
+
+  }
+  
+  .button-57:hover span:last-child {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 1;
+    transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+  }
+  /* CSS -=-------------------------------- 57 */
+
+
+
+
+  /* CSS -=-------------------------------- 57 - CUSTOM WIDTH  */
+.button-57-CW {
+    
+  font-family: var(--button-font);
+  font-weight: var(--button-font-weight);
+  font-size: 27px;
+  letter-spacing: 1px;
+
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid var(--button-color); 
+  /* box-shadow: 0 0 0 2px var(--main-color),     
+              0 0 0 4px var(--button-color);  */
+
+  color: var(--button-text-color);
+  /* display: inline-block; */
+  display: block;  
+  width: 200px;
+  height: 47px;
+  line-height: 15px;
+  /* padding: 16px 45px 16px; */
+  
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--button-color);
+  /* background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%); */
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: border 300ms ease, box-shadow 300ms ease;
+}
+
+.button-57-CW span:first-child {
+  top: 25%;  /* CONTROLLS THE HEIGHT OF THE MAIN TEXT WITHIN BUTTON  */
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
+}
+
+.button-57-CW span:last-child {
+  color: var(--text-color);
+  display: block;
+  position: relative;
+  bottom: 0;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 20%; /* CONTROLLS THE HEIGHT OF THE MAIN TEXT WITHIN BUTTON  */
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+  /* transform: translateY(0%) translateX(-50%); */
+  /* height: 14px; */
+  line-height: 13px;
+}
+
+.button-57-CW:after {
+  content: "";
+  position: absolute;
+  bottom: -110%;
+  left: 0;
+  width: calc(100% - 1px);
+  height: 160%;
+  background-color:var(--button-color);
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+
+}
+
+.button-57-CW:hover:after {
+  background-color: var(--main-color);
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+
+.button-57-CW:hover {
+  border: 2px solid var(--secondary-color);
+  box-shadow: 0 0 0 2px var(--main-color),
+              0 0 0 4px var(--secondary-color);
+
+}
+
+.button-57-CW:hover span:last-child {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+/* CSS -=-------------------------------- 57  - CUSTOM WIDTH END*/

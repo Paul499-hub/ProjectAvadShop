@@ -1,0 +1,220 @@
+/* 
+<div class="header_navbar">
+    <a href="#">Home</a>
+    <a href="#">Seminars</a>
+    <a href="#">Videos</a>
+    <a href="#">Events</a>
+</div> 
+*/
+
+.header {
+    height: 18vh;
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    /* position: sticky; */
+    /* position: absolute; */
+    position: fixed;
+    top: 0;
+    /* background-color: rgba(255, 255, 255, 0.64); */
+    /* background-color: #100c0c41; */
+    /* background: linear-gradient( to bottom, #100c0c 68% , #100c0ce6 80%,  #100c0cb8 90%, #100c0c11 100% ); */
+    background: linear-gradient( to bottom, #100c0c 0% , #100c0cc7 35% ,  transparent 100% );
+    /* opacity: 64%; */
+    z-index: 1000;
+    align-items:center;
+    justify-content: space-between;
+
+    transition: height 0.9s ease, background 0.9s ease;
+}
+
+
+.header.scrolled {
+    height: 8vh;
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    /* position: sticky; */
+    /* position: absolute; */
+    position: fixed;
+    top: 0;
+    /* background-color: rgba(255, 255, 255, 0.64); */
+    background: #100c0c;
+    /* opacity: 64%; */
+    z-index: 1000;
+    align-items:center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+
+.header .logo_container {
+    flex: 1;
+    display: flex;
+    font-family: var(--main-font);
+    color: var(--text-color);
+    align-items: center; /* UP AND DOWN */
+    /* justify-content: end;   LEFT RIGHT */
+    margin-right: 0%;
+    justify-content: center;
+    
+}
+
+
+.header .logo_container.scrolled {
+    order: -1; 
+    padding-bottom: 20px;
+}
+
+
+
+.header .logo_wrapper {
+    padding-left:0%;
+}
+.header .logo_container .img {
+    background-image: url('/static/shop/img/LOGO_PEN_BW_GS_INVERTED_T.png');
+    height:15vh;
+    width: 16vh;
+    background-repeat: no-repeat;
+    background-size: contain; /* Or cover */
+    background-position: center;
+
+    transition:  height 0.3s ease;
+}
+
+.header .logo_container .img.scrolled {
+    background-image: url('/static/shop/img/LOGO_PEN_BW_GS_INVERTED_LONG_T.png');
+    height: 45px;
+    width: 14vh;
+    background-repeat: no-repeat;
+    background-size: contain; /* Or cover */
+    background-position: center;
+}
+
+
+.header_navbar{
+    flex: 1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.header_navbar a{
+    text-decoration:none;
+    color: var(--text-color);
+    letter-spacing: var(--letter-spacing-small);
+    font-family: var(--main-font);
+    font-size: var(--font-size-small);
+    margin-left: 5%;
+    position: relative;
+}
+.header_navbar a:hover{
+    color: var(--button-color);
+}
+.header_navbar a::after {
+    content: "";  /* Creates the underline */
+    position: absolute;
+    bottom: 0; /* Places the underline at the bottom of the text */
+    left: 0; /* Start from the left */
+    width: 0; /* Initial width of the underline */
+    height: 1px; /* Height of the underline */
+    background: var(--button-color);
+    transition: width 0.3s ease;
+
+}   
+.header_navbar a:hover::after {
+    width: 100%;
+}
+.header_navbar a.section_js_active {
+    color: var(--button-color);
+}
+
+
+
+.menu{
+    flex:1;
+}
+.menu .menu_wrapper {
+    padding-left: 0%;
+    margin: 0 0 0 0;
+    display:flex;
+    justify-content: center;
+}
+.menu .span_wrapper {
+    width: 20px;
+    height: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu .span_wrapper:hover span {
+    background-color: var(--button-color);
+}
+.menu span {  /* Hamburger lines */
+    display: block;
+    height: 2px;
+    background-color: white;
+}
+
+
+.inside_menu {
+    position: fixed;
+    top: 0;
+    left: -50%;
+    height: 100%;
+    width: 40%;
+    background-color: var(--middle-secondary-color);
+    padding: 40px 35px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    transition: left 0.3 ease;
+    z-index: 1001
+}
+.inside_menu ul{
+    margin: 0 0 0 0%;
+    list-style: none;
+}
+.inside_menu ul li{
+    margin: 10% 0 0 0;
+}
+.inside_menu ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-family: 'League Spartan';
+    font-weight: 300;
+    font-size: 55px;
+}
+.inside_menu ul li a:hover {
+    color: var(--button-color); 
+    font-weight: 200;
+    /* background-color: rgba(0, 0, 0, 0.116);
+    box-shadow: 0px 0px 0px 20px rgba(0, 0, 0, 0.116); */
+    
+  
+
+}
+.inside_menu .close_btn {
+    font-size: 50px;
+    
+}
+.inside_menu .close_btn:hover {
+    color: var(--button-color);
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.3);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000
+}
+.inside_menu.active {
+    left: 0;
+}
+.overlay.active {
+    visibility: visible;
+    opacity: 1;
+}

@@ -5,60 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
-    <link rel="stylesheet" href=" {% static 'shop/booking_form.css'%}?v={{ timestamp }} ">
+    <link rel="stylesheet" href=" {% static 'shop/css/booking_form_page.css'%}?v={{ timestamp }} ">
+    <!-- <link rel="stylesheet" href=" {% static 'shop/booking_form.css'%}?v={{ timestamp }} "> -->
     <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap">
 </head>
 <body>
 
     <div class="form_section">
-
-        <div class="text_conatiner"> 
-            <h1>Book Event</h1>
+        <div class="text_wrapper">
+            <div class="text_container"> 
+                <h1>Book Event</h1>
+                <p>To book an event, simply provide your name, email, and phone number. This information ensures a smooth registration process and allows us to prepare for upcoming seminars.</p>
+            </div>
         </div>
+       
+        <div class="form_wrapper">
+            <form method="post" action="{% url 'book_seminar' %}">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product_id }}">
+    
+                <div class="input_theme_01">
+                    <div class="group">      
+                        <input type="text" name="name" spellcheck="false" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Name</label>
+                    </div>
+                </div>
+    
+                <div class="input_theme_01">
+                    <div class="group">      
+                        <input type="text" name="email" spellcheck="false" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Email</label>
+                    </div>
+                </div>
+    
+    
+                <div class="input_theme_01">
+                    <div class="group">      
+                        <input type="text" name="phone" spellcheck="false" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Phone</label>
+                    </div>
+                </div>
+                <!-- <label for="name">Name:</label>
+                <input type="text" name="name"  required><br>
         
-        <form method="post" action="{% url 'book_seminar' %}">
-            {% csrf_token %}
-            <input type="hidden" name="product_id" value="{{ product_id }}">
-
-            <div class="input_theme_01">
-                <div class="group">      
-                    <input type="text" name="name" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Name</label>
-                </div>
-            </div>
-
-            <div class="input_theme_01">
-                <div class="group">      
-                    <input type="text" name="email" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Email</label>
-                </div>
-            </div>
-
-
-            <div class="input_theme_01">
-                <div class="group">      
-                    <input type="text" name="phone" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Phone</label>
-                </div>
-            </div>
-            <!-- <label for="name">Name:</label>
-            <input type="text" name="name"  required><br>
-    
-            <label for="email">Email:</label>
-            <input type="email" name="email"  required><br>
-    
-            <label for="phone">Phone:</label>
-            <input type="text" name="phone"  required><br> -->
-    
-            <button class="button-57" type="submit"><span>Book and pay</span><span>Pay</span></button>
-        </form>
+                <label for="email">Email:</label>
+                <input type="email" name="email"  required><br>
+        
+                <label for="phone">Phone:</label>
+                <input type="text" name="phone"  required><br> -->
+        
+                <button class="button-57-CW" type="submit"><span>Book and pay</span><span>Pay</span></button>
+            </form>
+        </div>
     </div>
 
 

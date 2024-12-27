@@ -1,0 +1,146 @@
+.videos_section {
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top:8%;
+
+    width: 100%;
+    /* height: 60vh; */
+    /* background: var(--button-color); */
+}
+
+.videos_section .top_gradient {
+    width:100%;
+    height: 0vh;
+    background: linear-gradient( to bottom, transparent 0%, var(--button-color) 100% )
+}
+
+.videos_section .videos_wrapper{
+    flex:1;
+    /* background: var(--button-color); */
+}
+.videos_section .videos_wrapper i{
+    color: var(--button-color);
+    font-size: 60px;
+}
+
+.videos_section .videos_wrapper .top_bar {
+    
+    margin-left:19%;
+
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items:center;
+    /* width: 100%; */
+
+    margin-top:5%;
+    margin-bottom:2%;
+}
+.videos_section .videos_wrapper .top_bar .icon_wrapper{
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    align-items:center;
+}
+.videos_section .videos_wrapper .top_bar img{
+   width: 3vw;
+}
+
+.videos_section .videos_wrapper .top_bar .text_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 2%;
+
+}
+
+.videos_section .videos_wrapper .top_bar .text_wrapper h3 {
+    font-family: var(--main-font);
+    font-size: var(--font-size-big);
+    letter-spacing: var(--letter-spacing-big);
+    color: var(--button-color);
+    margin-block-start: 5%;
+}
+
+.videos_section .videos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: center;
+
+    background: var(--main-color);
+    
+    margin-left: 5%;
+    margin-right: 5%;
+    /* margin-bottom: 1%; */
+}
+
+.videos_section .videos .video_wrapper {
+    margin-left:3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    
+    
+    /* border: 5px solid blue;
+    outline: 10px solid red;
+    box-shadow: 0 0 0 70px var(--main-color); */
+                
+}
+.videos_section .videos .video_wrapper video {
+   
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px;
+    /* outline: 70px solid var(--main-color); */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.videos_section .videos .video_wrapper video:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.7);
+}
+
+
+.videos_section p {
+    color: var(--text-color);
+    font-family: var(--main-font);
+    font-size: var(--font-size-small);
+    letter-spacing: var(--letter-spacing-small);
+    line-height: 1.4;
+
+    margin-left: 19%;
+    margin-bottom: 2%;
+    width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

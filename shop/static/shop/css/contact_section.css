@@ -1,0 +1,61 @@
+
+.contact_section {
+    color: var(--text-color);
+    font-family: var(--main-font);
+    font-size: var(--font-size-small);
+    letter-spacing: var(--letter-spacing-small);
+    line-height:1.4;
+
+    /* height: 70vh; */
+    width: 100%;
+    display:flex;
+}
+
+.contact_section .inner_wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex:1;
+
+    margin-top:10%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom: 6%;
+}
+
+.contact_section .inner_wrapper .text_wrapper{
+    flex: 1;
+    display: flex;
+    justify-content:center;
+}
+
+.contact_section .inner_wrapper .text_wrapper .text_container{
+    align-self: flex-start;
+    width: 430px;
+}
+
+.contact_section .inner_wrapper .text_wrapper .text_container h1 {
+    font-size: var(--font-size-big);
+    color: var(--button-color);
+    letter-spacing: var(--letter-spacing-big);
+}
+
+.contact_section .inner_wrapper .text_wrapper .text_container p {
+    margin-top: 10%;
+}
+.contact_section .form_wrapper {
+    flex: 1;
+    display: flex;
+    
+    justify-content: center;
+    align-items:center;
+}
+
+.contact_section .form_wrapper .input_theme_01 {
+    margin-bottom: 10vh;
+    width: 30vw;
+}
+.contact_section .form_wrapper .button-57-CW {
+    margin-top:20vh;
+    width: 30vw;
+}
+

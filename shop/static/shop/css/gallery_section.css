@@ -1,0 +1,138 @@
+
+/* <div class="gallery_section section_js" data-name="gallery_section" id="gallery_section">
+    <div class="text_container">
+        <h1>Gallery</h1>
+        <span></span>
+        <p>See our work</p>
+    </div> */
+
+
+
+
+.gallery_section {
+    width: 100%;
+    height: 100vh;
+
+    padding-top: 5%;
+    position: relative;
+   
+}
+.gallery_section .text_container {
+    font-family: var(--main-font);
+    line-height: 1.4;
+
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+    
+    padding-right: 14vw;
+}
+.gallery_section .text_container h1 {
+    font-size: var(--font-size-big);
+    color: var(--button-color);
+    letter-spacing: var(--letter-spacing-big);
+}
+.gallery_section .text_container p {
+    font-size: var(--font-size-small);
+    color: var(--button-color);
+    letter-spacing: var(--letter-spacing-small);
+}
+.gallery_section .text_container .wrapper{
+
+}
+.gallery_section .text_container .line_text_wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.gallery_section .text_container .line_text_wrapper span{
+    display: block;
+    height: 1px;
+    width: 65px;
+    border-radius: 2px;
+    background: var(--text-color);
+
+    margin-right: 4%;
+}
+
+
+
+
+.gallery_section .images_wrapper {
+    display:flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index:1;
+
+    perspective: 1000px;
+
+    margin-top: 20%;
+}
+.gallery_section .images_wrapper img {
+    width:400px;
+    height: 375px;
+/*     
+    margin-left:2%;
+    margin-right:2%; */
+
+    opacity: 1;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease, opacity 0.5s ease, left 0.5s ease;
+
+    object-fit: cover;
+    object-position: top;
+}
+
+
+
+
+.gallery_section .carousel_button_wrapper {
+    display: grid;
+    grid-auto-flow: column;
+
+    width: 100%;
+    position: absolute;
+    z-index:2;
+    top: 40%;
+}
+.gallery_section .carousel_button {
+    color: var(--text-color);
+    font-size: 60px;
+
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.gallery_section .carousel_button.left_btn {
+    align-self: center;
+
+    width: 5vw;
+
+    display:flex;
+    align-items: center;
+    justify-content:center
+}
+.gallery_section .carousel_button.right_btn {
+    align-self: center;
+    justify-self: flex-end;
+  
+    width: 5vw;
+
+    display:flex;
+    align-items: center;
+    justify-content:center
+}
+.gallery_section .carousel_button.right_btn:hover {
+    color: var(--button-color);
+    cursor: pointer;
+}
+.gallery_section .carousel_button.left_btn:hover {
+    color: var(--button-color);
+    cursor: pointer;
+}

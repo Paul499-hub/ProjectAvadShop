@@ -1,0 +1,27 @@
+.navbar_social_media {
+    margin-top: 40px;
+}
+
+.first_icon{
+    color: var(--text-color);
+    text-decoration:none;
+    align-self: center;
+    padding-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.icon {
+    color: var(--text-color);
+    margin-left: 20px;
+    text-decoration:none;
+    align-self: center;
+    transition: all 0.3s ease;
+}
+
+.icon:hover {
+    color: var(--button-color);
+}
+
+.first_icon:hover {
+    color: var(--button-color);
+}

@@ -1,0 +1,22 @@
+@import url('./global.css');
+@import url('./button.css');
+@import url('./about_section.css');
+@import url('./social_media_navbar.css');
+@import url('./products_section.css');
+@import url('./header_b.css');
+@import url('./footer.css');
+@import url('./opener_section.css');
+@import url('./contact_section.css');
+@import url('./input_field.css');
+@import url('./gallery_section.css');
+@import url('./videos_section.css');
+
+@import url('./media_query.css');
+
+
+
+ /* REFERENCE DESIGN PAGES https://maestrostudija.lt/ : https://freshcut-barbershop.com/a-propos/ https://www.eddysbarbershop.com/  https://www.steventabach.com/
+    https://www.abelsonqueen.com/   EPIC ---> https://www.fortworthbarbershop.com/
+   -- SCROLL BOTTOM CUTOM APPEARANCE - ITEMS APPEAR GRADUALLY FROM THE BOTTOM*/
+/* WIX DESIGN --> https://editor.wix.com/html/editor/web/renderer/edit/aa34734d-6d67-411a-bb51-428a9c0a94c7?metaSiteId=6744f61d-b66b-4011-9d7a-f643292ccb19 */
+

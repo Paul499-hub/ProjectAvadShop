@@ -1,0 +1,116 @@
+
+ /* ---------- HTML EXAMPLE  */
+/* <div class="input_theme_01">
+    <div class="group">      
+        <input type="text" name="name" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Name</label>
+    </div>
+</div> */
+
+
+.input_theme_01 {
+    position: relative;
+    display: block;
+    width: 500px;
+}
+.input_theme_01 .group {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    position: relative;
+    width: inherit;
+}
+.input_theme_01 input {
+    font-family: var(--main-font);
+    font-size: 18px;
+    color: var(--text-color);
+    letter-spacing: var(--letter-spacing-small);
+
+    display: block;
+    background-color: transparent;
+    padding: 10px 10px 10px 5px;
+    width: inherit;
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+}
+.input_theme_01 input:focus{
+    border: none;
+    outline: none;
+}
+
+/* ----------- FLOATING LABEL  */
+.input_theme_01 label {
+    font-family: var(--main-font);
+    font-size: var(--font-size-small);
+    letter-spacing: var(--letter-spacing-small);
+
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition:0.2s ease all;
+}
+.input_theme_01 input:focus ~ label, input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.199);
+}
+
+/* --------------- UNDER BAR  */
+
+ /* --------- CREATE PEUDO ELEMENTS -- EXTRA GOLDEN BAR WIDTH 0 */
+.input_theme_01 .bar:before, .bar:after {
+    content: '';
+    height: 1px;
+    width: 0px;
+    bottom: 1px;
+    position: absolute;
+    background: var(--button-color);
+
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+}
+.input_theme_01 .bar:before {
+    left: 50%;
+}
+.input_theme_01 .bar:after {
+    right: 50%;
+}
+
+ /* -------------- ANIMATE GOLDEN BAR EXPANSION  */
+ .input_theme_01 input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width: 50%;
+ }
+
+
+
+ /* ---------- AUTOFILL FIX  */
+
+ .input_theme_01 input:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff !important; 
+    background-color: transparent !important; /* Make the background transparent */
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; /* Prevent white background */
+    color: var(--text-color) !important; /* Set text color explicitly (replace #fff with your desired color) */
+    font-family: var(--main-font); /* Ensure consistent font */
+    font-size: inherit; /* Match your input field's font size */
+    transition: background-color 5000s ease-in-out 0s; /* Prevent flickering */
+    letter-spacing: var(--letter-spacing-small);
+  }
+  .input_theme_01 input:-webkit-autofill:hover,
+  .input_theme_01 input:-webkit-autofill:focus {
+    background-color: transparent !important; /* Ensures no changes on hover/focus */
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    color: inherit !important;
+    font-family: var(--main-font);
+    letter-spacing: var(--letter-spacing-small);
+  }
+
+
+
+
+

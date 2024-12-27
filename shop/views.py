@@ -4,9 +4,11 @@ from django.shortcuts import render, redirect
 from .models import Product, Booking
 from django.http import HttpResponseNotFound
 from datetime import datetime
+import os
 # Create your views here.
 
 #SSL NOT CERTIFIED YET. LOOK FOR WEBHOSTING INSTRUCTIONS ON HOW TO INSTALL SSL
+# EPIC FONTS -- Visit The League of Moveable Type’s official website.
 
 def product_list(request):
     products=Product.objects.all()
@@ -16,7 +18,17 @@ def product_list(request):
 def home(request):
     products=Product.objects.all()
     timestamp = datetime.now().timestamp()
-    return render(request, 'shop/home_page.html', {'products':products, 'timestamp':timestamp})
+
+    # GET ALL IMG NAMES FROM media carousel folder -- FOR CAROUSEL IMGAGES DISPLAY
+    carousel_folder_path = os.path.join(settings.MEDIA_ROOT, 'carousel_images')
+    files = os.listdir(carousel_folder_path)
+
+    # GET ALL VIDEOS FROM media video folder
+    video_folder_path = os.path.join(settings.MEDIA_ROOT, 'videos')
+    video_files = os.listdir(video_folder_path)
+    print(f'video_files: {video_files}')
+
+    return render(request, 'shop/home_page.html', {'products':products, 'timestamp':timestamp, 'carousel':files, 'videos':video_files}) #  'carousel':carousel
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY

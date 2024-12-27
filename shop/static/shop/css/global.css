@@ -1,0 +1,103 @@
+
+@font-face {
+    font-family: 'League Spartan';
+    src: url('/static/shop/fonts/LeagueSpartan/WOFF2/LeagueSpartan-VF.woff2') format('woff2-variations'),
+         url('/static/shop/fonts/LeagueSpartan/WOFF/LeagueSpartan-VF.woff') format('woff');
+    font-weight: 200 900;
+}
+@font-face {
+    font-family: 'League Spartan Extra-Bold';
+    src: url('/static/shop/fonts/LeagueSpartan/WOFF2/LeagueSpartan-ExtraBold.woff2') format('woff2-variations'),
+         url('/static/shop/fonts/LeagueSpartan/WOFF/LeagueSpartan-ExtraBold.woff') format('woff');
+    font-weight: 200 900;
+}
+
+@font-face {
+    font-family: 'Chunk Five';
+    src: url('/static/shop/fonts/LeagueSpartan/WOFF2/ChunkFive-Regular.woff2') format('woff2'),
+         url('/static/shop/fonts/LeagueSpartan/WOFF/ChunkFive-Regular.woff') format('woff');
+    font-weight: 200 900;
+}
+
+@font-face {
+    font-family: 'Fanwood';
+    src: url('/static/shop/fonts/Fanwood/WOFF/fanwood_text-webfont.woff') format('woff');
+    font-weight: 200 900;
+}
+
+@font-face {
+    font-family: 'Fanwood-Regular';
+    src: url('/static/shop/fonts/Fanwood/WOFF/fanwood-webfont.woff') format('woff');
+    font-weight: 200 900;
+}
+
+
+:root {
+    /* font-family: 'League Spartan', sans-serif; */
+    /* font-weight: 400;  */
+
+    /* --main-font: "Fahkwang", sans-serif;
+    --font-weight: 400; */
+    /* --main-font: 'League Spartan', sans-serif; */
+    --main-font: 'Fanwood', sans-serif;
+    --heading-font: '';
+    --secondary-font:"Helvetica", sans-serif;
+    /* --main-color: rgb(255, 255, 255); */
+    /* --main-color: #363636; */
+    --main-color: #100c0c;
+    --secondary-color: #100c0c;
+    --middle-secondary-color: #cdcdcd;
+    /* --text-color: #363636; */
+    --text-color-h: #f5ae71;
+    --text-color: white;
+     /* BUTTONS */
+    --button-color: #f5ae71;
+    /* --button-color: #c71414; */
+    --button-color_two: #ec7c0c00;
+    /* --button-font: 'Roboto', sans-serif; */
+    --button-font: 'Fanwood-Regular', sans-serif;
+    --button-font-weight: 300; 
+    --button-text-color: white;
+    /* --button-text-color: var(--text-color-h); */
+
+    --font-size-big: 63px;
+    --font-size-mid-big: 29px;
+    --font-size-small: 21px;
+
+    --letter-spacing-big: 13px;
+    --letter-spacing-mid-big: 3px;
+    --letter-spacing-small: 1px;
+    
+    --max-width: 1275px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--main-color);
+    margin: 0px;
+}
+
+
+/* APPEARABLE DIVS */
+.scroll_appearable {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+.scroll_appearable.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+ /* REFERENCE DESIGN PAGES https://maestrostudija.lt/ : https://freshcut-barbershop.com/a-propos/ https://www.eddysbarbershop.com/  https://www.steventabach.com/
+    https://www.abelsonqueen.com/   EPIC ---> https://www.fortworthbarbershop.com/
+   -- SCROLL BOTTOM CUTOM APPEARANCE - ITEMS APPEAR GRADUALLY FROM THE BOTTOM*/
+/* WIX DESIGN --> https://editor.wix.com/html/editor/web/renderer/edit/aa34734d-6d67-411a-bb51-428a9c0a94c7?metaSiteId=6744f61d-b66b-4011-9d7a-f643292ccb19 */
+/* EPIC FONTS - www.theleagueofmoveabletype.com */
