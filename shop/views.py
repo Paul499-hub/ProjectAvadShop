@@ -26,36 +26,87 @@ def product_list(request):
 def google_login_callback(request):
     
     # GOOGLE LOGIN RESPONSE
+             
+    if request.method == 'POST':
+        # Get the credential token from Google
+        token = request.POST.get('credential')
+        if token:
+            try:
+                # Verify the token
+                id_info = id_token.verify_oauth2_token(
+                    token, requests.Request(), settings.GOOGLE_CLIENT_ID
+                )
 
-    
-    # Check if there is an authorization code in the request
-    auth_code = request.GET.get('code')
-    if auth_code:
-        try:
-            # Exchange the authorization code for an ID token
-            token_url = "https://oauth2.googleapis.com/token"
-            payload = {
-                'code': auth_code,
-                'client_id': settings.GOOGLE_CLIENT_ID,
-                'client_secret': settings.GOOGLE_CLIENT_SECRET,
-                'redirect_uri': 'https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/google_login_callback/',
-                'grant_type': 'authorization_code'
-            }
-            response = requests.post(token_url, data=payload)
-            token_data = response.json()
+                # Extract user info
+                user_email = id_info.get('email')
+                user_name = id_info.get('name')
+
+                # Add your login or user creation logic here
+                return JsonResponse({"message": "Login successful", "email": user_email, "name": user_name})
+
+            except ValueError as e:
+                # Token verification failed
+                return JsonResponse({"error": "Invalid token", "details": str(e)}, status=400)
+
+        # If no token is provided
+        return JsonResponse({"error": "No credential token provided"}, status=400)
+
+    # If the request method is not POST
+    return JsonResponse({"error": "Invalid request method"}, status=405)
+
+
+    # ------------- OLD AUTH CODE:
+    # # Check if there is an authorization code in the request
+    # auth_code = request.GET.get('code')
+    # if auth_code:
+    #     try:
+    #         # Exchange the authorization code for an ID token
+    #         token_url = "https://oauth2.googleapis.com/token"
+    #         payload = {
+    #             'code': auth_code,
+    #             'client_id': settings.GOOGLE_CLIENT_ID,
+    #             'client_secret': settings.GOOGLE_CLIENT_SECRET,
+    #             'redirect_uri': 'https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/google_login_callback/',
+    #             'grant_type': 'authorization_code'
+    #         }
+    #         response = requests.post(token_url, data=payload)
+    #         token_data = response.json()
             
-            # Verify the ID token
-            id_info = id_token.verify_oauth2_token(
-                token_data['id_token'], requests.Request(), settings.GOOGLE_CLIENT_ID
-            )
-            # You now have user info from Google
-            user_email = id_info.get('email')
-            print(f' --------------------- PROF I GOT USER INFO: {user_email}')
-            # Add logic here to log in the user or create a user account
+    #         # Verify the ID token
+    #         id_info = id_token.verify_oauth2_token(
+    #             token_data['id_token'], requests.Request(), settings.GOOGLE_CLIENT_ID
+    #         )
+    #         # You now have user info from Google
+    #         user_email = id_info.get('email')
+    #         print(f' --------------------- PROF I GOT USER INFO: {user_email}')
+    #         # Add logic here to log in the user or create a user account
             
-            return redirect('/')  # Redirect back to the main page
-        except Exception as e:
-            return JsonResponse({"error": str(e)}, status=400)
+    #         return redirect('/')  # Redirect back to the main page
+    #     except Exception as e:
+    #         return JsonResponse({"error": str(e)}, status=400)
+        
+
+        # EROR ---- ValueError at /google_login_callback/
+        # The view shop.views.google_login_callback didn't return an HttpResponse object. It returned None instead.
+        # Request Method:	POST
+        # Request URL:	https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/google_login_callback/
+        # Django Version:	5.1.3
+        # Exception Type:	ValueError
+        # Exception Value:	
+        # The view shop.views.google_login_callback didn't return an HttpResponse object. It returned None instead.
+        # Exception Location:	/home/paul126324/.local/lib/python3.12/site-packages/django/core/handlers/base.py, line 332, in check_response
+        # Raised during:	shop.views.google_login_callback
+        # Python Executable:	/usr/bin/python
+        # Python Version:	3.12.3
+        # Python Path:	
+        # ['/home/paul126324/ProjectAvadShop',
+        # '/usr/lib/python312.zip',
+        # '/usr/lib/python3.12',
+        # '/usr/lib/python3.12/lib-dynload',
+        # '/home/paul126324/.local/lib/python3.12/site-packages',
+        # '/usr/local/lib/python3.12/dist-packages',
+        # '/usr/lib/python3/dist-packages']
+        # Server time:	Fri, 27 Dec 2024 19:54:30 +0000
 
 
 
