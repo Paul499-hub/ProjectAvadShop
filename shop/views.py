@@ -25,6 +25,9 @@ def home(request):
 
 
     # GOOGLE LOGIN RESPONSE
+
+
+    print(f'--------- PRINT SENSITIVE client_id:{settings.GOOGLE_CLIENT_ID} \n client_secret:{settings.GOOGLE_CLIENT_SECRET}')
         # Check if there is an authorization code in the request
     auth_code = request.GET.get('code')
     if auth_code:
