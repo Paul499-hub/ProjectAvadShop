@@ -505,6 +505,15 @@
         </div>
     </div>
 
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div id="g_id_onload"
+        data-client_id="YOUR_CLIENT_ID"
+        data-login_uri="https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+
+
 </body>
 </html>
 
@@ -736,7 +745,26 @@
 
 
 
+<!-- GIT COMMANDS
 
+--- PUSH TO REPO
+1. git add . 
+2. git commit -m "update msg"
+3. git push origin master
+
+--- UNDO PUSH 
+1. git log --oneline   
+2. git reset --mixed f6eb572  (unstage and jump in commit history to this commit.)
+
+-- CHANGE COMMIT : 
+1.git rebase -i HEAD~1
+2. (insert button lets you write) change 'pick' to 'edit'. :wq
+3. git add (files) git commit --amend --no-edit
+4. git commit --amend --no-edit
+5. git rebase --continue
+6. git push origin master --force
+
+-->
 
 
 

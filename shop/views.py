@@ -5,6 +5,9 @@ from .models import Product, Booking
 from django.http import HttpResponseNotFound
 from datetime import datetime
 import os
+from google.oauth2 import id_token
+from google.auth.transport import requests
+from django.http import JsonResponse
 # Create your views here.
 
 #SSL NOT CERTIFIED YET. LOOK FOR WEBHOSTING INSTRUCTIONS ON HOW TO INSTALL SSL
@@ -18,6 +21,40 @@ def product_list(request):
 def home(request):
     products=Product.objects.all()
     timestamp = datetime.now().timestamp()
+
+
+
+    # GOOGLE LOGIN RESPONSE
+        # Check if there is an authorization code in the request
+    auth_code = request.GET.get('code')
+    if auth_code:
+        try:
+            # Exchange the authorization code for an ID token
+            token_url = "https://oauth2.googleapis.com/token"
+            payload = {
+                'code': auth_code,
+                'client_id': settings.GOOGLE_CLIENT_ID,
+                'client_secret': settings.GOOGLE_CLIENT_SECRET,
+                'redirect_uri': 'https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/',
+                'grant_type': 'authorization_code'
+            }
+            response = requests.post(token_url, data=payload)
+            token_data = response.json()
+            
+            # Verify the ID token
+            id_info = id_token.verify_oauth2_token(
+                token_data['id_token'], requests.Request(), settings.GOOGLE_CLIENT_ID
+            )
+            # You now have user info from Google
+            user_email = id_info.get('email')
+            # Add logic here to log in the user or create a user account
+            
+            return redirect('/')  # Redirect back to the main page
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
+
+
+
 
     # GET ALL IMG NAMES FROM media carousel folder -- FOR CAROUSEL IMGAGES DISPLAY
     carousel_folder_path = os.path.join(settings.MEDIA_ROOT, 'carousel_images')
