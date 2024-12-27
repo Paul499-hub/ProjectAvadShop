@@ -26,8 +26,7 @@ def home(request):
 
     # GOOGLE LOGIN RESPONSE
 
-
-    print(f'--------- PRINT SENSITIVE client_id:{settings.GOOGLE_CLIENT_ID} \n client_secret:{settings.GOOGLE_CLIENT_SECRET}')
+    # print(f'--------- PRINT SENSITIVE client_id:{settings.GOOGLE_CLIENT_ID} \n client_secret:{settings.GOOGLE_CLIENT_SECRET}')
         # Check if there is an authorization code in the request
     auth_code = request.GET.get('code')
     if auth_code:
@@ -68,7 +67,7 @@ def home(request):
     video_files = os.listdir(video_folder_path)
     print(f'video_files: {video_files}')
 
-    return render(request, 'shop/home_page.html', {'products':products, 'timestamp':timestamp, 'carousel':files, 'videos':video_files}) #  'carousel':carousel
+    return render(request, 'shop/home_page.html', {'products':products, 'timestamp':timestamp, 'carousel':files, 'videos':video_files, 'google_client_id':settings.GOOGLE_CLIENT_ID}) #  'carousel':carousel
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
