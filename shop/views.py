@@ -8,6 +8,7 @@ import os
 from google.oauth2 import id_token
 from google.auth.transport import requests
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 #SSL NOT CERTIFIED YET. LOOK FOR WEBHOSTING INSTRUCTIONS ON HOW TO INSTALL SSL
@@ -18,16 +19,16 @@ def product_list(request):
     return render(request, 'shop/product_page.html', {'products':products})
 
 
-def home(request):
-    products=Product.objects.all()
-    timestamp = datetime.now().timestamp()
 
 
 
+@csrf_exempt
+def google_login_callback(request):
+    
     # GOOGLE LOGIN RESPONSE
 
-    # print(f'--------- PRINT SENSITIVE client_id:{settings.GOOGLE_CLIENT_ID} \n client_secret:{settings.GOOGLE_CLIENT_SECRET}')
-        # Check if there is an authorization code in the request
+    
+    # Check if there is an authorization code in the request
     auth_code = request.GET.get('code')
     if auth_code:
         try:
@@ -49,12 +50,18 @@ def home(request):
             )
             # You now have user info from Google
             user_email = id_info.get('email')
+            print(f' --------------------- PROF I GOT USER INFO: {user_email}')
             # Add logic here to log in the user or create a user account
             
             return redirect('/')  # Redirect back to the main page
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=400)
 
+
+
+def home(request):
+    products=Product.objects.all()
+    timestamp = datetime.now().timestamp()
 
     # GET ALL IMG NAMES FROM media carousel folder -- FOR CAROUSEL IMGAGES DISPLAY
     carousel_folder_path = os.path.join(settings.MEDIA_ROOT, 'carousel_images')
