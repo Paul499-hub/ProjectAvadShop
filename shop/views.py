@@ -27,12 +27,15 @@ def product_list(request):
 def google_login_callback(request):
     
     # GOOGLE LOGIN RESPONSE
+
+
              
     if request.method == 'POST':
         # Get the credential token from Google
         body = json.loads(request.body.decode('utf-8'))
-        # token = request.POST.get('credential')
-        token = body.get('credential')
+        token = request.POST.get('credential')
+        #token = body.get('credential')
+   
         if token:
             try:
                 # Verify the token
