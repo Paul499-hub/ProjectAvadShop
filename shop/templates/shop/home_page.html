@@ -516,65 +516,20 @@
 
 
 
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-
+    <script src="https://accounts.google.com/gsi/client" async></script>
     <div id="g_id_onload"
         data-client_id="{{ google_client_id }}"
         data-login_uri="https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/google_login_callback/"
         data-auto_prompt="false">
     </div>
-    
-    <div class="g_id_signin" data-type="standard"></div>
-    
-    <script>
-        window.onload = function () {
-            // Initialize the Google Sign-In
-            google.accounts.id.initialize({
-                client_id: "{{ google_client_id }}",
-                callback: handleCredentialResponse,
-            });
-    
-            // Render the Google Sign-In Button
-            google.accounts.id.renderButton(
-                document.querySelector(".g_id_signin"),
-                {
-                    theme: "outline",
-                    size: "large",
-                }
-            );
-        };
-    
-        async function handleCredentialResponse(response) {
-            console.log("Encoded JWT ID token: " + response.credential);
-            // Handle the token and send it to your backend
-
-
-            // Send the token to the backend
-            try {
-                const result = await fetch("https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/google_login_callback/", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ credential }),
-                });
-
-                if (result.ok) {
-                    const data = await result.json();
-                    console.log("Login Successful:", data);
-                    // Perform further actions (e.g., redirect the user, display success message)
-                } else {
-                    const errorData = await result.json();
-                    console.error("Login Failed:", errorData);
-                }
-            } catch (error) {
-                console.error("Error during login:", error);
-            }
-
-
-        }
-    </script>
+    <div class="g_id_signin"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="sign_in_with"
+        data-shape="rectangular"
+        data-logo_alignment="left">
+    </div>
 
 
 
