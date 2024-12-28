@@ -86,29 +86,6 @@ def google_login_callback(request):
     #         return JsonResponse({"error": str(e)}, status=400)
         
 
-        # EROR ---- ValueError at /google_login_callback/
-        # The view shop.views.google_login_callback didn't return an HttpResponse object. It returned None instead.
-        # Request Method:	POST
-        # Request URL:	https://8080-cs-3d8adc57-bf91-486e-bf47-651e90843cdd.cs-europe-west4-bhnf.cloudshell.dev/google_login_callback/
-        # Django Version:	5.1.3
-        # Exception Type:	ValueError
-        # Exception Value:	
-        # The view shop.views.google_login_callback didn't return an HttpResponse object. It returned None instead.
-        # Exception Location:	/home/paul126324/.local/lib/python3.12/site-packages/django/core/handlers/base.py, line 332, in check_response
-        # Raised during:	shop.views.google_login_callback
-        # Python Executable:	/usr/bin/python
-        # Python Version:	3.12.3
-        # Python Path:	
-        # ['/home/paul126324/ProjectAvadShop',
-        # '/usr/lib/python312.zip',
-        # '/usr/lib/python3.12',
-        # '/usr/lib/python3.12/lib-dynload',
-        # '/home/paul126324/.local/lib/python3.12/site-packages',
-        # '/usr/local/lib/python3.12/dist-packages',
-        # '/usr/lib/python3/dist-packages']
-        # Server time:	Fri, 27 Dec 2024 19:54:30 +0000
-
-
 
 def home(request):
     products=Product.objects.all()
@@ -179,3 +156,7 @@ def payment_success(request):
 
 def payment_cancel(request):
     return render(request,'shop/cancel.html')
+
+
+
+#https://console.cloud.google.com/apis/credentials/oauthclient/280420744331-c6p756ulmmfb9ive50ui62onldneql47.apps.googleusercontent.com?authuser=2&cloudshell=true&inv=1&invt=AblP6w&project=perfect-spanner-446014-j8
