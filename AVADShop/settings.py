@@ -24,6 +24,7 @@ from decouple import config
 GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
 GOOGLE_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
