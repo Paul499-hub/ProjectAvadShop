@@ -9,6 +9,7 @@ from google.oauth2 import id_token
 from google.auth.transport import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+import json
 # Create your views here.
 
 #SSL NOT CERTIFIED YET. LOOK FOR WEBHOSTING INSTRUCTIONS ON HOW TO INSTALL SSL
@@ -21,7 +22,7 @@ def product_list(request):
 
 
 
-
+# ROUTE URL: google_login_callback/
 @csrf_exempt
 def google_login_callback(request):
     
@@ -29,7 +30,9 @@ def google_login_callback(request):
              
     if request.method == 'POST':
         # Get the credential token from Google
-        token = request.POST.get('credential')
+        body = json.loads(request.body.decode('utf-8'))
+        # token = request.POST.get('credential')
+        token = body.get('credential')
         if token:
             try:
                 # Verify the token
