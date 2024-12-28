@@ -32,8 +32,9 @@ def google_login_callback(request):
              
     if request.method == 'POST':
         # Get the credential token from Google
-        body = json.loads(request.body.decode('utf-8'))
         token = request.POST.get('credential')
+
+        # body = json.loads(request.body.decode('utf-8'))
         #token = body.get('credential')
    
         if token:
