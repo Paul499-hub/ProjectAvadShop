@@ -165,5 +165,4 @@ def payment_cancel(request):
     return render(request,'shop/cancel.html')
 
 
-
 #https://console.cloud.google.com/apis/credentials/oauthclient/280420744331-c6p756ulmmfb9ive50ui62onldneql47.apps.googleusercontent.com?authuser=2&cloudshell=true&inv=1&invt=AblP6w&project=perfect-spanner-446014-j8
