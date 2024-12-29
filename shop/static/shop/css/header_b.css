@@ -130,6 +130,12 @@
 
 
 
+.Google_login_button {
+    flex:1;
+}
+
+
+
 .menu{
     flex:1;
 }
